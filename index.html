@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="ملمح: سير ذاتية متوافقة مع أنظمة التوظيف، وحساب لينكدإن احترافي، وخطاب تقديم، وأدلة للمقابلات. اطلب عبر واتساب.">
+<meta property="og:title" content="متجر ملمح | لكل مرحلة في مسيرتك">
+<meta property="og:description" content="سير ذاتية بالعربي والإنجليزي، تحسين لينكدإن، خطاب تقديم، ودليل المقابلات.">
+<meta property="og:image" content="img/StoreComplete.jpg">
+<link rel="icon" href="img/malmah-color.png">
+<title>متجر ملمح</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: navy brand header, product grid on a light ground, sticky cart bar at the bottom, cart sheet over the page. */
+:root{
+  --navy:#012454; --navy-2:#0A2B5C; --orange:#DD8045; --orange-ink:#A9561F;
+  --bg:#F4F6F9; --card:#FFFFFF; --ink:#13213A; --muted:#5B6B7A; --line:#E1E6EE; --soft:#EEF2F7;
+  --font:'IBM Plex Sans Arabic',Tahoma,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+/* header */
+.hero{background-color:var(--navy);background-image:linear-gradient(#0A2C5E 1px,transparent 1px),linear-gradient(90deg,#0A2C5E 1px,transparent 1px);background-size:44px 44px;color:#fff}
+.hero .wrap{padding-block:22px 34px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top img{height:46px;width:auto;display:block}
+.top a.wa{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.28);padding:7px 14px;color:#fff}
+.top a.wa:hover{border-color:var(--orange)}
+.hero h1{margin:34px 0 6px;font-size:clamp(28px,5.4vw,46px);line-height:1.25;font-weight:700;text-wrap:balance}
+.hero h1 span{color:var(--orange)}
+.hero p{margin:0;color:#BAC7DC;font-size:16px;max-width:52ch}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:13.5px;color:#DCE4EF}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.trust svg{flex:0 0 16px}
+
+/* filter */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px 14px}
+.bar h2{margin:0;font-size:20px;font-weight:700}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:6px 14px;font-size:14px;font-weight:600}
+.tabs button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* grid */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));padding-bottom:30px}
+.p{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.p .img{position:relative;aspect-ratio:1/1;background:var(--navy);overflow:hidden;cursor:pointer;border:0;padding:0;display:block;width:100%}
+.p .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.p .img:hover img{transform:scale(1.03)}
+.p .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.p h3{margin:0;font-size:17px;font-weight:700;line-height:1.4}
+.p .sub{margin:0;color:var(--muted);font-size:13.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;background:var(--soft);color:var(--navy);padding:2px 9px}
+.chip.inst{background:#FCEFE5;color:var(--orange-ink)}
+.row{flex-wrap:wrap;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
+.price{font-size:20px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.price small{font-size:13px;font-weight:600;color:var(--muted)}
+.price del{font-size:14px;font-weight:500;color:var(--muted);margin-inline-start:4px}
+.p.hot{border:2px solid var(--orange);box-shadow:0 8px 24px rgba(221,128,69,.18)}
+.ribbon{background:var(--orange);color:var(--navy);font-weight:700;font-size:14.5px;padding:7px 14px;text-align:center}
+.off{position:absolute;bottom:12px;left:12px;background:#fff;color:#B3261E;font-weight:700;font-size:13px;padding:3px 10px}
+.rush{flex-direction:row!important;align-items:flex-start;gap:10px!important;border:1px solid var(--line);background:var(--soft);padding:10px 12px;cursor:pointer}
+.rush input{width:18px!important;height:18px;margin-top:3px;accent-color:var(--orange);flex:0 0 18px}
+.rush span{display:flex;flex-direction:column;font-weight:400}
+.rush small{color:var(--muted);font-size:12.5px}
+.terms{font-size:12.5px;color:var(--muted);margin:0}
+.up{margin:0;border:1px dashed var(--orange);background:#FFF7F1;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.up.hot{border-style:solid;border-width:2px}
+.up b{font-size:14.5px;color:var(--navy)}
+.up p{margin:0;font-size:13px;color:var(--muted)}
+#ups:empty{display:none}
+.upb{align-self:flex-start;border:0;background:var(--navy);color:#fff;font-weight:700;font-size:13.5px;padding:7px 14px}
+.pp del{color:var(--muted)}
+.free{background:var(--orange)}
+.free .wrap{padding-block:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.free h3{margin:0;font-size:22px;color:var(--navy)}
+.free p{margin:4px 0 0;color:#3B2A1C;font-size:14.5px;max-width:56ch}
+.free a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;white-space:nowrap}
+.faq .wrap{padding-block:30px;display:flex;flex-direction:column;gap:10px;max-width:820px}
+.faq h2{margin:0 0 6px;font-size:20px}
+.faq details{background:var(--card);border:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:13px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--orange);font-size:20px;line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq details p{margin:0;padding:0 16px 14px;color:var(--muted);font-size:14.5px}
+.works{padding-bottom:10px}
+.bnote{margin:0;color:var(--muted);font-size:13.5px}
+.wgrid{display:grid;gap:14px;grid-template-columns:repeat(5,minmax(0,1fr));padding-bottom:20px}
+@media (max-width:900px){.wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wgrid .wk:first-child{grid-column:1/-1}.wgrid .wk:first-child img{aspect-ratio:16/10;object-position:top}}
+.wk{border:1px solid var(--line);background:var(--card);padding:0;text-align:start;display:flex;flex-direction:column;min-width:0;color:var(--ink)}
+.wk img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#E9EDF2}
+.wk span{padding:10px 12px;display:flex;flex-direction:column}
+.wk b{font-size:15px}.wk small{color:var(--muted);font-size:12.5px}
+.wk:hover{border-color:var(--orange)}
+.revs{background:#EFEAE2;background-image:radial-gradient(rgba(1,36,84,.05) 1px,transparent 1px);background-size:18px 18px}
+.revs .bar{padding-top:26px}
+.rgrid{columns:2 340px;column-gap:16px;padding-bottom:30px}
+.rv{break-inside:avoid;margin:0 0 16px;display:flex;flex-direction:column;gap:8px}
+.rv blockquote{margin:0;background:#fff;padding:14px 16px;font-size:15.5px;line-height:1.8;color:#111B21;position:relative;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.rv blockquote::before{content:"";position:absolute;top:0;right:-8px;border-width:0 0 10px 10px;border-style:solid;border-color:transparent transparent transparent #fff}
+.rv figcaption{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--navy)}
+.av{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.zoom{align-items:center;justify-content:center;padding:16px}
+.zbox{position:relative;max-width:min(720px,100%);max-height:100%;overflow:auto;background:#fff}
+.zbox img{display:block;width:100%}
+.zbox .x{position:absolute;top:8px;left:8px;z-index:2}
+.need{border:1px solid var(--line);background:var(--bg);padding:10px 12px;font-size:13.5px}
+.need summary{font-weight:700;color:var(--navy);cursor:pointer}
+.need ul{margin:6px 0 0;padding-inline-start:18px}
+.need li{margin:2px 0}
+.need p{margin:6px 0 0;color:var(--muted);font-size:12.5px}
+#needs:empty{display:none}
+.fab{flex-direction:row;flex-wrap:nowrap;white-space:nowrap;box-sizing:border-box;position:fixed;z-index:25;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:15px;height:62px;padding:0 20px 0 16px;border-radius:31px;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:bottom .25s ease,transform .15s}
+.fab svg{flex:0 0 34px}
+.fab:hover{transform:scale(1.04)}
+.fab.up{bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+@media (max-width:480px){.fab span{display:none}.fab svg{flex:0 0 34px}.fab{width:62px;padding:0;justify-content:center}}
+.save{display:flex;justify-content:space-between;font-size:14px;color:#1F7A4D;font-weight:600}
+.price.ask{font-size:14px;color:var(--muted)}
+.add{white-space:nowrap;border:0;background:var(--orange);color:var(--navy);font-weight:700;padding:8px 14px;font-size:14px;display:inline-flex;align-items:center;gap:6px}
+.add:hover{filter:brightness(1.05)}
+.add.in{background:var(--navy);color:#fff}
+.more{border:0;background:none;color:var(--navy);font-weight:600;font-size:13.5px;padding:0;text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+
+/* steps + contact */
+.how{background:var(--card);border-block:1px solid var(--line)}
+.how .wrap{padding-block:26px;display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:720px){.how .wrap{grid-template-columns:1fr}}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step b{flex:0 0 34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:15px}
+.step h4{margin:0;font-size:15.5px}
+.step p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+footer{background:var(--navy);color:#BAC7DC}
+footer .wrap{padding-block:26px 120px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+footer img{height:38px}
+footer .c{display:flex;flex-direction:column;gap:4px;font-size:14px}
+footer .c b{color:#fff;font-size:20px;letter-spacing:.5px}
+footer .slogan{color:#fff;font-weight:600}
+
+/* cart bar */
+.cbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--navy);color:#fff;padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -6px 24px rgba(1,36,84,.18);transform:translateY(110%);transition:transform .25s ease}
+.cbar.on{transform:none}
+.cbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.cbar .sum{font-size:14px;color:#DCE4EF}
+.cbar .sum b{color:#fff;font-size:17px}
+.cbar button{border:0;background:var(--orange);color:var(--navy);font-weight:700;padding:10px 18px;font-size:15px}
+
+/* sheets */
+.scrim{position:fixed;inset:0;z-index:30;background:rgba(1,20,48,.55);display:flex;justify-content:flex-start}
+[hidden]{display:none!important}
+.sheet{background:var(--card);width:min(440px,100%);height:100%;display:flex;flex-direction:column;overflow-y:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.sh{position:sticky;top:0;background:var(--card);z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+.sh h3{margin:0;font-size:18px}
+.x{border:0;background:var(--soft);width:36px;height:36px;font-size:20px;line-height:1;color:var(--ink)}
+.items{flex:0 0 auto;padding:6px 18px}
+#cart .foot{margin-top:auto}
+.it{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.it img{width:56px;height:56px;object-fit:cover;background:var(--navy)}
+.it h4{margin:0;font-size:14.5px;line-height:1.4}
+.it .pp{font-size:13px;color:var(--muted)}
+.qty{display:flex;align-items:center;border:1px solid var(--line)}
+.qty button{border:0;background:none;width:30px;height:30px;font-size:16px;color:var(--ink)}
+.qty span{min-width:22px;text-align:center;font-variant-numeric:tabular-nums;font-weight:600}
+.empty{color:var(--muted);text-align:center;padding:40px 0}
+.foot{border-top:1px solid var(--line);padding:14px 18px;display:flex;flex-direction:column;gap:10px}
+.tot{display:flex;justify-content:space-between;font-size:16px;font-weight:700}
+.tot span:last-child{font-variant-numeric:tabular-nums}
+.foot label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600}
+.foot input,.foot textarea{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--bg);padding:8px 10px;color:var(--ink);width:100%}
+.foot textarea{resize:vertical;min-height:54px}
+.go{display:flex;align-items:center;justify-content:center;gap:10px;background:#1FAF5A;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:12px}
+.go[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.note{font-size:12.5px;color:var(--muted);margin:0;text-align:center}
+.detail{overflow:auto;flex:1}
+.detail img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;background:var(--navy)}
+.detail .in{padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.detail h3{margin:0;font-size:20px}
+.detail ul{margin:0;padding-inline-start:20px}
+.detail li{margin:3px 0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--ink);color:#fff;padding:8px 16px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <img src="img/malmah-white.png" alt="ملمح">
+    </div>
+    <h1>لكل مرحلة في مسيرتك<br><span>ملف مهني يفتح لك الأبواب</span></h1>
+    <p>سير ذاتية متوافقة مع أنظمة التوظيف، وحساب لينكدإن يجذب مسؤولي التوظيف، وأدلة عملية تجهّزك للمقابلة.</p>
+    <div class="trust">
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DD8045" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>متوافقة مع أنظمة ATS</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DD8045" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>3 تعديلات مجانية خلال 30 يوماً</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DD8045" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>عربي وإنجليزي</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DD8045" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>الطلب والدفع عبر واتساب</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="bar">
+      <h2>منتجات ملمح</h2>
+      <div class="tabs" role="group" aria-label="تصفية المنتجات">
+        <button type="button" data-f="all" aria-pressed="true">الكل</button>
+        <button type="button" data-f="service" aria-pressed="false">خدمات</button>
+        <button type="button" data-f="digital" aria-pressed="false">منتجات رقمية</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+  <section class="works" aria-labelledby="worksT"><div class="wrap">
+    <div class="bar"><h2 id="worksT">نماذج من أعمالنا</h2><p class="bnote">نماذج توضيحية ببيانات افتراضية، اضغط على أي نموذج لتكبيره</p></div>
+    <div class="wgrid"><button type="button" class="wk" data-zoom="img/sample-1.jpg" data-cap="الفرق قبل وبعد"><img src="img/sample-1.jpg" alt="نموذج: الفرق قبل وبعد" loading="lazy"><span><b>الفرق قبل وبعد</b><small>سيرة عادية مقابل نسخة ملمح</small></span></button><button type="button" class="wk" data-zoom="img/sample-2.jpg" data-cap="السيرة بالعربي"><img src="img/sample-2.jpg" alt="نموذج: السيرة بالعربي" loading="lazy"><span><b>السيرة بالعربي</b><small>بإنجازات وأرقام ومتوافقة مع ATS</small></span></button><button type="button" class="wk" data-zoom="img/sample-5.jpg" data-cap="السيرة بالإنجليزي"><img src="img/sample-5.jpg" alt="نموذج: السيرة بالإنجليزي" loading="lazy"><span><b>السيرة بالإنجليزي</b><small>بمصطلحات مهنية ومتوافقة مع ATS</small></span></button><button type="button" class="wk" data-zoom="img/sample-3.jpg" data-cap="حساب لينكدإن"><img src="img/sample-3.jpg" alt="نموذج: حساب لينكدإن" loading="lazy"><span><b>حساب لينكدإن</b><small>عنوان ونبذة ومهارات بكلمات مفتاحية</small></span></button><button type="button" class="wk" data-zoom="img/sample-4.jpg" data-cap="خطاب التقديم"><img src="img/sample-4.jpg" alt="نموذج: خطاب التقديم" loading="lazy"><span><b>خطاب التقديم</b><small>مخصص للوظيفة وأقل من صفحة</small></span></button></div>
+  </div></section>
+  <section class="revs" aria-labelledby="revT"><div class="wrap">
+    <div class="bar"><h2 id="revT">آراء عملائنا</h2><p class="bnote">رسائل حقيقية وصلتنا على واتساب، منشورة بموافقة أصحابها</p></div>
+    <div class="rgrid"><figure class="rv"><blockquote>يعطيكم العافية على هذا الشغل الاحترافي 😍💐💐</blockquote><figcaption><span class="av">أ</span>أ. ط</figcaption></figure><figure class="rv"><blockquote>يعطيكم ألف عافية، والله السيرة الذاتية طلعت بشكل مختلف تمامًا عن اللي كنت متخيله<br>أكثر شيء أعجبني أنكم عرفتم كيف تبرزون خبراتي ومهاراتي بطريقة احترافية وواضحة.<br>بصراحة حسيت لأول مرة أن سيرتي تعكس إمكانياتي فعلًا 🙏</blockquote><figcaption><span class="av">ب</span>ب. ز</figcaption></figure><figure class="rv"><blockquote>السلام عليكم<br><br>حبيت أشكركم على التعامل الراقي والاهتمام بأدق التفاصيل.<br><br>من أول تواصل إلى تسليم العمل وأنتم قمة في الاحترافية، والأجمل أنكم تفهمون احتياج العميل وتقدمون له أكثر مما يتوقع.<br><br>أكيد مو آخر تعامل معكم بإذن الله 👍❤️</blockquote><figcaption><span class="av">ع</span>ع. ع</figcaption></figure><figure class="rv"><blockquote>للأمانة تجربتي مع مَلْمَح كانت من أفضل التجارب.<br><br>مو بس تنفيذ خدمة وخلاص، فيه اهتمام بالمحتوى، ومراجعة للتفاصيل، وحرص على أن العمل يطلع بأفضل صور</blockquote><figcaption><span class="av">س</span>س. م</figcaption></figure></div>
+  </div></section>
+  <section class="free" aria-label="فحص مجاني">
+    <div class="wrap">
+      <div><h3>افحص سيرتك مجاناً</h3><p>أرسل لنا سيرتك الحالية على الواتساب، ونرد عليك بدرجة توافقها مع أنظمة التوظيف ATS وأهم 3 ملاحظات لتحسينها.</p></div>
+      <a href="https://wa.me/966535749946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%A8%D9%8A%20%D9%81%D8%AD%D8%B5%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%20%D9%84%D8%B3%D9%8A%D8%B1%D8%AA%D9%8A%20%D8%A7%D9%84%D8%B0%D8%A7%D8%AA%D9%8A%D8%A9%20%D9%85%D9%86%20%D9%85%D9%84%D9%85%D8%AD.%20%28%D8%A3%D8%B1%D9%81%D9%82%20%D8%B3%D9%8A%D8%B1%D8%AA%D9%83%20%D9%87%D9%86%D8%A7%29" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>اطلب الفحص المجاني</a>
+    </div>
+  </section>
+  <section class="how" aria-label="طريقة الطلب">
+    <div class="wrap">
+      <div class="step"><b>1</b><div><h4>اختر منتجك</h4><p>أضف للسلة الخدمة أو الدليل اللي يناسب مرحلتك.</p></div></div>
+      <div class="step"><b>2</b><div><h4>أرسل الطلب</h4><p>نحوّلك لواتساب برسالة جاهزة فيها طلبك والإجمالي.</p></div></div>
+      <div class="step"><b>3</b><div><h4>استلم ملفك</h4><p>نأكد الطلب ونرسل لك الملفات في الموعد، والأدلة فوراً. مدة التسليم تبدأ من استلام بياناتك كاملة.</p></div></div>
+    </div>
+  </section>
+  <section class="faq" aria-labelledby="faqT"><div class="wrap"><h2 id="faqT">أسئلة شائعة</h2><details><summary>كيف أدفع؟</summary><p>بعد ما ترسل طلبك على الواتساب نأكد معك التفاصيل ونرسل لك طرق الدفع المتاحة، ونبدأ الشغل بعد الدفع مباشرة.</p></details><details><summary>وش أرسل لكم عشان تبدأون؟</summary><p>سيرتك الحالية إن وجدت، أو بياناتك: الخبرات والتعليم والدورات والمهارات. ومعها الوظيفة أو المجال اللي تستهدفه، وإعلان الوظيفة إذا عندك وظيفة محددة.</p></details><details><summary>متى تبدأ مدة التسليم؟</summary><p>من استلام بياناتك كاملة. وإذا تحتاج الملف بسرعة، اختر التسليم المستعجل من السلة.</p></details><details><summary>وش يشمل التعديل المجاني؟</summary><p>ثلاث جولات تعديل خلال 30 يوماً من التسليم، على المحتوى اللي سلّمناه لك. أما تغيير الوظيفة المستهدفة أو إضافة خبرات جديدة فيُحسب طلباً جديداً بسعر مخفّض. ونصيحتنا: اجمع ملاحظاتك في رسالة وحدة.</p></details><details><summary>وش الفرق بين السيرة بالعربي والإنجليزي واللغتين؟</summary><p>العربي يناسب الجهات الحكومية وأغلب الشركات المحلية، والإنجليزي يناسب الشركات الدولية والقطاع الخاص. واللغتين تعطيك نسختين متطابقتين تقدّم فيها على أي جهة.</p></details><details><summary>متى أستلم الأدلة الرقمية؟</summary><p>دليل المقابلات وحزمة «اكتب سيرتك بنفسك» توصلك على الواتساب فور تأكيد الدفع.</p></details><details><summary>هل بياناتي محفوظة؟</summary><p>نستخدم بياناتك لتجهيز ملفاتك فقط، وما نشاركها مع أي جهة.</p></details><details><summary>هل تضمنون لي وظيفة؟</summary><p>نجهّز ملفك بأفضل شكل ونرفع فرص ظهورك ووصولك لمسؤولي التوظيف، لكن قرار التوظيف يرجع للجهة نفسها وعوامل أخرى، فما نقدر نضمنه.</p></details></div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:8px"><img src="img/malmah-white.png" alt="ملمح"><span class="slogan">نبرز ملامحك المهنية</span></div>
+    <div class="c"><span>للطلب والاستفسار عبر واتساب</span><b dir="ltr">053 574 9946</b></div>
+  </div>
+</footer>
+
+<div class="cbar" id="cbar" aria-live="polite">
+  <div class="wrap">
+    <div class="sum" id="csum"></div>
+    <button type="button" id="openCart">عرض السلة</button>
+  </div>
+</div>
+<a class="fab" id="fab" href="https://wa.me/966535749946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%85%D9%84%D9%85%D8%AD" target="_blank" rel="noopener" aria-label="راسلنا على واتساب"><svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.7c0 2.5.7 4.8 2 6.8L3 29l6.8-1.9c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.3c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.3 9.9 10.1 5.2 16 5.2s10.7 4.7 10.7 10.5S21.9 26.3 16 26.3zm5.9-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>راسلنا</span></a>
+<div class="toast" id="toast" role="status"></div>
+<div class="scrim zoom" id="zoom" hidden><div class="zbox" role="dialog" aria-modal="true" aria-label="تكبير النموذج"><button class="x" type="button" data-close aria-label="إغلاق">×</button><img id="zimg" alt=""></div></div>
+<div class="scrim" id="cart" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cartT">
+    <div class="sh"><h3 id="cartT">سلة الطلب</h3><button class="x" type="button" data-close aria-label="إغلاق">×</button></div>
+    <div class="items" id="items"></div>
+    <div class="foot">
+      <div id="ups"></div>
+      <div id="needs"></div>
+      <label class="rush" id="rushRow" hidden for="rush"><input type="checkbox" id="rush"><span><b>تسليم مستعجل +29 ر.س</b><small>خلال 24 ساعة للخدمات، و48 ساعة للباقة المتكاملة</small></span></label>
+      <div class="save" id="saveRow" hidden><span>وفّرت</span><span id="saved"></span></div>
+      <div class="tot"><span>الإجمالي</span><span id="total"></span></div>
+      <p class="terms">مدة التسليم تبدأ من استلام بياناتك كاملة. التعديلات المجانية تشمل تعديل المحتوى المسلَّم، أما تغيير الوظيفة المستهدفة أو إضافة خبرات جديدة فطلب جديد بسعر مخفّض.</p>
+      <label for="cname">الاسم<input id="cname" autocomplete="name" placeholder="اسمك الكريم"></label>
+      <label for="cnote">ملاحظات <span style="font-weight:400;color:var(--muted)">اختياري: الوظيفة المستهدفة واللغة المطلوبة</span><textarea id="cnote"></textarea></label>
+      <a class="go" id="go" href="https://wa.me/966535749946" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>
+        أكمل الطلب عبر واتساب</a>
+      <p class="note">يفتح واتساب برسالة جاهزة فيها طلبك، اضغط إرسال، وأرفق بعدها سيرتك الحالية إن وجدت عشان نبدأ أسرع. إذا ما فتح، راسلنا على <span dir="ltr">053 574 9946</span></p>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="det" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="detT">
+    <div class="sh"><h3 id="detT"></h3><button class="x" type="button" data-close aria-label="إغلاق">×</button></div>
+    <div class="detail" id="detB"></div>
+    <div class="foot"><button class="add" id="detAdd" type="button" style="justify-content:center;padding:12px"></button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ===== Products: edit prices here (SAR). null = price shown as "حسب الطلب" =====
+  const WA = '966535749946';
+  const PRODUCTS = [
+    { id:'cv-ar', kind:'service', img:'StoreStart', name:'السيرة الذاتية بالعربي', price:39, was:69,
+      sub:'للجهات الحكومية والشركات المحلية',
+      desc:'سيرة ذاتية احترافية بالعربي، مكتوبة بأسلوب الإنجازات ومتوافقة مع أنظمة التوظيف الآلية (ATS) اللي تفرز الطلبات قبل ما يقرأها أحد.',
+      feats:['متوافقة مع أنظمة ATS','صياغة بالإنجازات والأرقام','تدقيق لغوي','ملف PDF وWord'], tags:['تسليم خلال 3 أيام','3 تعديلات مجانية خلال 30 يوماً'] },
+    { id:'cv-en', kind:'service', img:'StoreEnglish', name:'السيرة الذاتية بالإنجليزي', price:39, was:69,
+      sub:'للشركات الدولية والقطاع الخاص',
+      desc:'سيرة ذاتية بالإنجليزي بمصطلحات مهنية دقيقة يفهمها مسؤول التوظيف وأنظمة ATS في الشركات العالمية والقطاع الخاص.',
+      feats:['متوافقة مع أنظمة ATS','مصطلحات مهنية دقيقة','تدقيق لغوي إنجليزي','ملف PDF وWord'], tags:['تسليم خلال 3 أيام','3 تعديلات مجانية خلال 30 يوماً'] },
+    { id:'cv-bi', kind:'service', img:'StoreBilingual', name:'سيرة باللغتين', price:69, was:129, badge:'الأكثر طلباً', hot:true,
+      sub:'عربي وإنجليزي، جاهز لأي جهة تقدّم عليها',
+      desc:'نسختان متطابقتان من سيرتك بالعربي والإنجليزي، عشان تقدّم على أي جهة حكومية أو خاصة أو دولية بدون ما ترجع تترجم.',
+      feats:['نسختان متطابقتان','متوافقة مع أنظمة ATS','تدقيق لغوي للغتين','ملفات PDF وWord'], tags:['تسليم خلال 3 أيام','3 تعديلات مجانية خلال 30 يوماً'] },
+    { id:'letter', kind:'service', img:'StoreLetter', name:'خطاب التقديم', price:29, was:49,
+      sub:'مخصص للوظيفة والشركة اللي تقدّم عليها',
+      desc:'خطاب تقديم (Cover Letter) مكتوب لوظيفة وشركة محددة، يربط خبرتك بمتطلبات الوظيفة ويبرز أقوى إنجازاتك في أقل من صفحة.',
+      feats:['مخصص لكل وظيفة','يبرز أقوى إنجازاتك','أقل من صفحة','عربي أو إنجليزي'], tags:['تسليم خلال يومين','3 تعديلات مجانية خلال 30 يوماً'] },
+    { id:'linkedin', kind:'service', img:'StoreLinkedIn', name:'باقة لينكدإن', price:69, was:99,
+      sub:'حساب مهني يجذب مسؤولي التوظيف',
+      desc:'نبني حسابك في لينكدإن قسماً قسماً بالعربي والإنجليزي، بكلمات مفتاحية يبحث بها مسؤولو التوظيف، مع تصميم صورة خلفية احترافية وملف جاهز للنسخ واللصق.',
+      feats:['عنوان مهني بكلمات مفتاحية','نبذة تبرز إنجازاتك','تحسين الخبرات والمهارات','تصميم بانر احترافي'], tags:['تسليم خلال 3 أيام','3 تعديلات مجانية خلال 30 يوماً','بالعربي والإنجليزي'] },
+    { id:'complete', kind:'service', img:'StoreComplete', name:'الباقة المتكاملة', price:229, was:269, badge:'الأكثر طلباً', hot:true,
+      sub:'خمس خدمات تجهّزك للتقديم في باقة وحدة',
+      desc:'كل اللي تحتاجه قبل ما تقدّم: سيرة باللغتين، وحساب لينكدإن محسّن، وخطاب تقديم، ومعها دليل المقابلات ودليل إعداد السيرة.',
+      feats:['سيرة باللغتين','تحسين لينكدإن','خطاب تقديم','دليل المقابلات','دليل إعداد السيرة'], tags:['تسليم خلال 5 أيام','3 تعديلات مجانية خلال 30 يوماً','الأدلة تحميل فوري'] },
+    { id:'guide', kind:'digital', img:'StoreGuide', name:'دليل المقابلات الوظيفية', price:29, was:49,
+      sub:'دليلك لاجتياز المقابلات الوظيفية',
+      desc:'دليل عملي بالعربي في 7 فصول: أشهر أسئلة المقابلات وإجاباتها، وطريقة STAR بالأمثلة، وقائمة تجهيز قبل المقابلة، والتفاوض على الراتب.',
+      feats:['أشهر الأسئلة وإجاباتها','طريقة STAR بالأمثلة','قائمة تجهيز قبل المقابلة','التفاوض على الراتب'], tags:['تحميل فوري','PDF','7 فصول عملية'] },
+    { id:'diy', kind:'digital', img:'StoreTemplate', name:'اكتب سيرتك بنفسك', price:39, was:79,
+      sub:'نموذج سيرة جاهز للتعديل مع دليل يعلمك الكتابة',
+      desc:'نموذج سيرة ذاتية بصيغة Word بالعربي والإنجليزي ومتوافق مع ATS، ومعه دليل يشرح كتابة كل قسم خطوة بخطوة بالأمثلة والأخطاء اللي تتجنبها.',
+      feats:['نموذج متوافق مع ATS','ملف Word قابل للتعديل','شرح كل قسم بالأمثلة','أخطاء تجنبها'], tags:['تحميل فوري','نموذج عربي وإنجليزي','دليل بالعربي'] },
+  ];
+  // ==========================================================================
+
+  const $ = s => document.querySelector(s);
+  const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+  const fmt = n => n.toLocaleString('en-US');
+  const priceHTML = p => p.price == null ? '<span class="price ask">السعر عند الطلب</span>' : `<span class="price"><bdi>${fmt(p.price)} <small>ر.س</small></bdi>${p.was ? ` <del><bdi>${fmt(p.was)} ر.س</bdi></del>` : ''}</span>`;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem('malmah-cart') || '{}') || {}; } catch(e){}
+  Object.keys(cart).forEach(k => { if (!byId[k] || !(cart[k] > 0)) delete cart[k]; });
+  const save = () => { try { localStorage.setItem('malmah-cart', JSON.stringify(cart)); } catch(e){} };
+
+  let filter = 'all';
+  function renderGrid(){
+    $('#grid').innerHTML = [...PRODUCTS].sort((a, b) => (b.hot ? (b.id === 'complete' ? 2 : 1) : 0) - (a.hot ? (a.id === 'complete' ? 2 : 1) : 0)).filter(p => filter === 'all' || p.kind === filter).map(p => `
+      <article class="p${p.hot ? ' hot' : ''}">${p.hot ? `<div class="ribbon">${p.id === 'complete' ? '★ الأكثر طلباً · الخيار الأوفر' : '★ الأكثر طلباً'}</div>` : ''}
+        <button class="img" type="button" data-more="${p.id}" aria-label="تفاصيل ${esc(p.name)}"><img src="img/${p.img}.jpg" alt="${esc(p.name)}" loading="lazy"></button>
+        <div class="body">
+          <h3>${esc(p.name)}</h3>
+          <p class="sub">${esc(p.sub)}</p>
+          <div class="meta">${p.tags.map((t,i) => `<span class="chip${/فوري/.test(t)?' inst':''}">${esc(t)}</span>`).join('')}</div>
+          <button class="more" type="button" data-more="${p.id}">التفاصيل</button>
+          <div class="row">${priceHTML(p)}<button class="add${cart[p.id]?' in':''}" type="button" data-add="${p.id}">${cart[p.id] ? 'في السلة ✓' : 'أضف للسلة'}</button></div>
+        </div>
+      </article>`).join('');
+  }
+
+  const RUSH = 29;
+  const hasService = () => lines().some(l => l.p.kind === 'service');
+  const rushOn = () => hasService() && $('#rush').checked;
+  const count = () => Object.values(cart).reduce((a, b) => a + b, 0);
+  const lines = () => Object.entries(cart).map(([id, q]) => ({ p: byId[id], q }));
+  const LETTER_DEAL = 19, CVS = ['cv-ar', 'cv-en', 'cv-bi'];
+  const COVERED = ['cv-ar', 'cv-en', 'cv-bi', 'letter', 'linkedin', 'guide'];
+  const hasCV = () => CVS.some(id => cart[id]);
+  const letterDeal = () => !!cart.letter && hasCV();
+  const lineTotal = l => l.p.price == null ? 0 : (l.p.id === 'letter' && letterDeal() ? LETTER_DEAL + l.p.price * (l.q - 1) : l.p.price * l.q);
+  function totals(){
+    const ls = lines(); const known = ls.filter(l => l.p.price != null);
+    return { sum: known.reduce((a, l) => a + lineTotal(l), 0) + (rushOn() ? RUSH : 0), partial: known.length < ls.length, any: known.length > 0 };
+  }
+  // ===== What we need from the customer, per order =====
+  const NEED_CV_DETAILS = ['خبراتك: المسمى، والجهة، والمدينة، وتاريخ البداية والنهاية، وأهم مهامك وإنجازاتك (وإذا عندك أرقام مثل نسب أو أعداد اذكرها)', 'مؤهلك العلمي والجامعة وسنة التخرج', 'الدورات والشهادات مع الجهة والسنة', 'مهاراتك واللغات اللي تجيدها'];
+  function needs(){
+    const has = id => !!cart[id];
+    const svc = lines().filter(l => l.p.kind === 'service');
+    const dig = lines().some(l => l.p.kind === 'digital');
+    if (!svc.length) return dig ? { top: [], cv: false, done: 'ما نحتاج منك شي 👍 بعد تأكيد الدفع يوصلك الملف على نفس هالمحادثة.' } : null;
+    const top = []; const add = t => { if (!top.includes(t)) top.push(t); };
+    const anyCV = CVS.some(has) || has('complete');
+    add('الوظيفة أو المجال اللي تستهدفه');
+    if (has('cv-en') || has('cv-bi') || has('complete')) add('اسمك بالإنجليزي كما في الجواز');
+    if (anyCV) add('بيانات التواصل اللي تبيها في السيرة: الجوال والإيميل والمدينة ورابط لينكدإن إن وجد');
+    if (has('linkedin') || has('complete')) { add('رابط حسابك في لينكدإن، أو قل لنا إذا ما عندك حساب'); add('المدينة أو الدول اللي تبي تشتغل فيها'); }
+    if (has('linkedin')) { add('هل تبي حسابك بالعربي والإنجليزي، أو لغة وحدة؟'); add('صورتك الشخصية الحالية إذا تبي رأينا فيها (اختياري)'); }
+    if (has('letter')) { add('إعلان الوظيفة أو رابطه'); add('اسم الجهة، واسم المسؤول إن كنت تعرفه'); add('لغة الخطاب: عربي أو إنجليزي'); add('ليش تبي هالوظيفة بالذات، أو أي شي تبي نبرزه (اختياري)'); }
+    if (has('complete')) add('إعلان وظيفة تبي تقدّم عليها عشان نكتب لها خطاب التقديم (وإذا ما عندك، نكتب خطاب عام لمجالك)');
+    return { top, cv: true, dig, rush: rushOn() };
+  }
+  function needsText(){
+    const n = needs(); if (!n) return '';
+    if (n.done) return n.done;
+    const L = ['عشان نبدأ، أرسل لنا:'];
+    n.top.forEach(t => L.push('• ' + t));
+    L.push('', 'وإذا عندك سيرة حالية أرسلها (PDF أو Word أو صورة) وتكفي. وإذا ما عندك سيرة، اذكر لنا:');
+    NEED_CV_DETAILS.forEach((t, i) => L.push(`${i + 1}. ${t}`));
+    if (n.dig) L.push('', 'والأدلة الرقمية توصلك على نفس هالمحادثة بعد تأكيد الدفع.');
+    if (n.rush) L.push('', 'ملاحظة: التسليم المستعجل يبدأ من وصول كل البيانات، فأرسلها كاملة دفعة وحدة عشان نلحق الموعد.');
+    L.push('', 'تقدر ترسل البيانات على دفعات، بس مدة التسليم تبدأ من اكتمالها.');
+    return L.join('\n');
+  }
+  function needsHTML(){
+    const n = needs(); if (!n) return '';
+    if (n.done) return `<details class="need" open><summary>بعد الطلب</summary><p>${esc(n.done)}</p></details>`;
+    return `<details class="need" open><summary>جهّز هذي المعلومات</summary><ul>${n.top.map(t => `<li>${esc(t)}</li>`).join('')}<li>سيرتك الحالية إن وجدت، وإذا ما عندك: خبراتك ومؤهلك ودوراتك ومهاراتك</li></ul><p>تنضاف القائمة لرسالة الواتساب تلقائياً.</p></details>`;
+  }
+  function upsells(){
+    const out = [];
+    if (cart.complete) return out;
+    const cov = COVERED.filter(id => cart[id]);
+    const covSum = cov.reduce((a, id) => a + lineTotal({ p: byId[id], q: 1 }), 0);
+    const services = cov.filter(id => byId[id].kind === 'service');
+    if (services.length >= 2) {
+      const diff = byId.complete.price - covSum;
+      out.push(`<div class="up hot"><b>${diff > 0 ? `بزيادة ${fmt(diff)} ر.س تحصل على الباقة المتكاملة` : 'الباقة المتكاملة بسعر أقل من طلبك'}</b><p>سيرة باللغتين ولينكدإن وخطاب التقديم، ومعها دليل المقابلات ودليل إعداد السيرة، بـ ${fmt(byId.complete.price)} ر.س.</p><button type="button" class="upb" data-upgrade>رقّ طلبي للباقة المتكاملة</button></div>`);
+    } else if (hasCV() && !cart.letter) {
+      out.push(`<div class="up"><b>عرض مع سيرتك: خطاب التقديم بـ ${LETTER_DEAL} ر.س بدل ${byId.letter.price}</b><p>خطاب مخصص للوظيفة يرفع فرص قبولك، بسعر خاص لأن طلبك فيه سيرة.</p><button type="button" class="upb" data-add-letter>أضف خطاب التقديم</button></div>`);
+    }
+    return out;
+  }
+  const totalText = () => { const t = totals(); if (!t.any) return 'يُحدد بعد التواصل'; return fmt(t.sum) + ' ر.س' + (t.partial ? ' + منتجات بسعر عند الطلب' : ''); };
+
+  function waText(){
+    const name = $('#cname').value.trim(), note = $('#cnote').value.trim();
+    const ref = 'M' + (Date.now() % 100000).toString().padStart(5, '0');
+    const L = ['السلام عليكم، أبي أطلب من متجر ملمح:', ''];
+    lines().forEach((l, i) => L.push(`${i + 1}. ${l.p.name}${l.q > 1 ? ` × ${l.q}` : ''}${l.p.price != null ? ` (${lineTotal(l)} ريال${l.p.id === 'letter' && letterDeal() ? '، عرض مع السيرة' : ''})` : ''}`));
+    if (rushOn()) L.push('+ تسليم مستعجل (' + RUSH + ' ريال)');
+    L.push('', 'الإجمالي: ' + totalText().replace('ر.س', 'ريال'));
+    if (name) L.push('الاسم: ' + name);
+    if (note) L.push('ملاحظات: ' + note);
+    L.push('رقم الطلب: ' + ref);
+    const nt = needsText(); if (nt) L.push('', '━━━━━━━━━━', nt);
+    return L.join('\n');
+  }
+  function updateLink(){
+    const a = $('#go');
+    if (!count()){ a.setAttribute('aria-disabled', 'true'); a.href = 'https://wa.me/' + WA; return; }
+    a.removeAttribute('aria-disabled');
+    a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(waText());
+  }
+  function renderCart(){
+    const ls = lines();
+    $('#items').innerHTML = ls.length ? ls.map(({p, q}) => `
+      <div class="it"><img src="img/${p.img}.jpg" alt="">
+        <div><h4>${esc(p.name)}</h4><div class="pp">${p.price == null ? 'السعر عند الطلب' : (p.id === 'letter' && letterDeal() ? `<bdi>${LETTER_DEAL} ر.س</bdi> <del><bdi>${fmt(p.price)} ر.س</bdi></del> · عرض مع السيرة` : `<bdi>${fmt(p.price)} ر.س</bdi>`)}</div></div>
+        <div class="qty"><button type="button" data-dec="${p.id}" aria-label="إنقاص">−</button><span>${fmt(q)}</span><button type="button" data-inc="${p.id}" aria-label="زيادة">+</button></div>
+      </div>`).join('') : '<p class="empty">السلة فاضية. اختر منتجك وأضفه.</p>';
+    $('#ups').innerHTML = upsells().join('');
+    $('#needs').innerHTML = needsHTML();
+    $('#rushRow').hidden = !hasService();
+    $('#total').textContent = totalText();
+    const sv = lines().reduce((a, l) => a + (l.p.was && l.p.price != null ? l.p.was * l.q - lineTotal(l) : 0), 0);
+    $('#saveRow').hidden = !sv; $('#saved').textContent = fmt(sv) + ' ر.س';
+    const n = count();
+    $('#cbar').classList.toggle('on', n > 0);
+    $('#fab').classList.toggle('up', n > 0);
+    $('#csum').innerHTML = n ? `<b>${fmt(n)}</b> ${n === 1 ? 'منتج' : n === 2 ? 'منتجان' : 'منتجات'} · ${esc(totalText())}` : '';
+    updateLink();
+  }
+  function toast(t){ const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 1600); }
+  function open(id){ $('#toast').classList.remove('on'); const s = document.getElementById(id); s.hidden = false; s.querySelector('[data-close]').focus(); }
+  function closeAll(){ document.querySelectorAll('.scrim').forEach(s => s.hidden = true); }
+
+  function add(id){
+    cart[id] = (cart[id] || 0) + (cart[id] ? 0 : 1); save(); renderGrid(); renderCart();
+    toast('أضفنا «' + byId[id].name + '» للسلة');
+  }
+  function showDetail(id){
+    const p = byId[id];
+    $('#detT').textContent = p.name;
+    $('#detB').innerHTML = `<img src="img/${p.img}.jpg" alt="${esc(p.name)}"><div class="in">
+      ${p.badge ? `<span class="chip inst" style="align-self:flex-start">${esc(p.badge)}</span>` : ''}
+      <p style="margin:0">${esc(p.desc)}</p>
+      <div><b>يشمل:</b><ul>${p.feats.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
+      <div class="meta">${p.tags.map(t => `<span class="chip${/فوري/.test(t)?' inst':''}">${esc(t)}</span>`).join('')}</div>
+      <div>${priceHTML(p)}${p.was ? ` <span class="chip inst">وفّر ${fmt(p.was - p.price)} ر.س</span>` : ''}</div></div>`;
+    const b = $('#detAdd'); b.dataset.id = id; b.textContent = cart[id] ? 'في السلة ✓ · عرض السلة' : 'أضف للسلة';
+    open('det');
+  }
+
+  document.addEventListener('click', e => {
+    const z = e.target.closest('[data-zoom]'); if (z) { $('#zimg').src = z.dataset.zoom; $('#zimg').alt = z.dataset.cap; open('zoom'); return; }
+    const t = e.target.closest('[data-add],[data-more],[data-inc],[data-dec],[data-close],[data-f],[data-upgrade],[data-add-letter]');
+    if (e.target.classList.contains('scrim')) { closeAll(); return; }
+    if (!t) return;
+    if (t.hasAttribute('data-upgrade')) { COVERED.forEach(id => delete cart[id]); cart.complete = 1; save(); renderGrid(); renderCart(); toast('استبدلنا طلبك بالباقة المتكاملة'); return; }
+    if (t.hasAttribute('data-add-letter')) { cart.letter = 1; save(); renderGrid(); renderCart(); return; }
+    if (t.dataset.add) { if (cart[t.dataset.add]) { renderCart(); open('cart'); } else add(t.dataset.add); }
+    else if (t.dataset.more) showDetail(t.dataset.more);
+    else if (t.dataset.inc) { cart[t.dataset.inc]++; save(); renderCart(); }
+    else if (t.dataset.dec) { const k = t.dataset.dec; if (--cart[k] <= 0) delete cart[k]; save(); renderCart(); renderGrid(); }
+    else if (t.hasAttribute('data-close')) closeAll();
+    else if (t.dataset.f) { filter = t.dataset.f; document.querySelectorAll('[data-f]').forEach(b => b.setAttribute('aria-pressed', String(b === t))); renderGrid(); }
+  });
+  $('#detAdd').addEventListener('click', () => { const id = $('#detAdd').dataset.id; if (cart[id]) { closeAll(); renderCart(); open('cart'); } else { add(id); closeAll(); renderCart(); open('cart'); } });
+  $('#openCart').addEventListener('click', () => { renderCart(); open('cart'); });
+  ['#cname', '#cnote'].forEach(s => $(s).addEventListener('input', updateLink));
+  $('#rush').addEventListener('change', renderCart);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+  $('#go').addEventListener('click', () => { if (count()) setTimeout(() => toast('تم فتح واتساب، اضغط إرسال لإتمام الطلب'), 300); });
+
+  renderGrid(); renderCart();
+})();
+</script>
+
+</body>
+</html>
